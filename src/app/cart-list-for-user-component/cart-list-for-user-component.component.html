@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:pink">
+           
+    <div class="container-fluid">
+        <button (click)="back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+    <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+</nav>
+<h2 style="text-align:center">Cart List</h2>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">cartId</th>
+        <th scope="col">Cart Product Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total cost</th>
+        <th scope="col">Order Now</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart of carts">
+        <td>{{cart.cartId}}</td>
+        <td>{{cart.cartProductName}}</td>
+        <td>{{cart.quantity}}</td>
+        <td>{{cart.total_cost}}</td>
+        <td><button (click)="OrderNow(cart.cartId)" class="btn btn-primary navbar-btn"style="width:80;height: 35;">OrderNow</button></td> 
+      </tr>
+    </tbody>
+  </table>
+
+<!-- <h2 style="text-align:center">Cart List</h2>
+ <div class="card"> -->
+    <!-- <div class="card-body"> -->
+<!-- <table class="table table-dark">
+    <thead >
+        <tr>
+            <th>Cart Id</th>
+            <th>Cart Product Name</th>
+            <th>Quantity</th>
+            <th>Total Cost</th>
+            <th>OrderNow</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let cart of carts" >
+            <td> {{ cart.cartId }}</td>
+            <td> {{ cart.cartProductName}} </td>
+            <td> {{ cart.quantity}}</td>
+            <td> {{ cart.total_cost}}</td>
+            <button (click)="OrderNow(cart.cartId)" class="btn btn-primary navbar-btn">Order Now</button>
+        </tr>
+    </tbody>
+</table>  -->
+    <!-- </div> -->
+<!-- </div> -->

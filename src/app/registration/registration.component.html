@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+    <div class="container-fluid">    
+      
+    <ul class = "nav navbar-nav">
+        <button (click)="back()"class="btn btn-primary navbar-btn">Go Back</button>      
+        
+    </ul>
+  
+    </div>
+  </nav>
+  <div style="background-color: bisque;background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+  <div class="row d-flex justify-content-center">
+      <div class="col-lg-4">
+        <h2 style="text-align: center;"class="fw-bold mb-5"><b style="color:mediumblue">Register</b></h2>
+        <form #registerform="ngForm" (ngSubmit)="UserRegister()">
+          <!-- {{registerform.form.valid}} -->
+          <!--UserName-->
+          <div class="row"><div class="col-md-6 mb-4">
+            <div class="form-outline">
+              Username:
+              <input type="text" name="userName" class="form-control" placeholder="UserName" [(ngModel)]="user.userName" required pattern="[A-Za-z]{1,32}"#userName="ngModel"
+              [class.is-invalid]="userName.invalid&&userName.touched"/>
+              <!-- <small class="text-danger" [class.d-none]="userName.valid||userName.untouched">Required field</small> -->
+              <div *ngIf="userName.errors && (userName.invalid && userName.touched)">
+                <small class="text-danger" *ngIf="userName.errors?.['required']">required field</small>
+                <small class="text-danger"*ngIf="userName.errors?.['pattern']">enter a valid user name</small>
+              </div>
+            </div>
+            </div>
+            <!--userLastName-->
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                user LastName:
+                <input type="text" name="userLastName" class="form-control" placeholder="userLastName" [(ngModel)]="user.userLastName" required pattern="[A-Za-z]{1,32}"#name="ngModel"
+                [class.is-invalid]="name.invalid&&name.touched"/>
+                <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+                <div *ngIf="name.errors && (name.invalid && name.touched)">
+                  <small class="text-danger" *ngIf="name.errors?.['required']">required field</small>
+                  <small class="text-danger"*ngIf="name.errors?.['pattern']">enter a valid user name</small>
+                </div>
+              </div>
+            </div>
+            <!--email-->
+            <div class="col-md-6 mb-4">
+              <div class="form-outline">
+                Email:
+                <input type="text" name="userEmail" class="form-control" placeholder="user Email"[(ngModel)]="user.userEmail" #userEamil="ngModel"
+                [class.is-invalid]="userEamil.invalid"/>
+                <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+                <div *ngIf="userEamil.errors ">
+                  <small class="text-danger" *ngIf="userEamil.errors?.['required']">required field</small>
+                  <small class="text-danger"*ngIf="userEamil.errors?.['pattern']">enter a valid Email</small>
+                </div>
+               
+              </div>
+            </div>
+            <!--Password-->
+            <div class="form-outline mb-4">
+                Password:
+                <input type="password" name="password" class="form-control" placeholder="Password"[(ngModel)]="user.password" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                #password="ngModel"          [class.is-invalid]="password.invalid&&password.touched"/>
+                <!-- <small class="text-danger" [class.d-none]="password.valid||password.untouched">Required field</small> -->
+                <div *ngIf="password.errors && (password.invalid && password.touched)">
+                  <small class="text-danger" *ngIf="password.errors?.['required']">password is required</small>
+                  <small class="text-danger"*ngIf="password.errors?.['pattern']">must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+                </div>
+              </div>
+             
+          <!-- PhoneNumber input -->
+          <div class="col-md-6 mb-4">
+            <div class="form-outline">
+              Phone PhoneNumber:
+              <input type="text" name="PhoneNumber" class="form-control" placeholder="PhoneNumber"[(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
+              [class.is-invalid]="phoneNumber.invalid"/>
+              <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+              <div *ngIf="phoneNumber.errors ">
+                <small class="text-danger" *ngIf="phoneNumber.errors?.['required']">required field</small>
+                <small class="text-danger"*ngIf="phoneNumber.errors?.['pattern']">enter a valid number</small>
+              </div>
+             
+            </div>
+          </div>
+          
+          <!-- Address -->
+          <div class="col-md-6 mb-4">
+            <div class="form-outline">
+              Address:
+              <input type="text" name="Address" class="form-control" placeholder="user Address"[(ngModel)]="user.address" #address="ngModel"
+              [class.is-invalid]="address.invalid"/>
+              <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+              <div *ngIf="address.errors ">
+                <small class="text-danger" *ngIf="address.errors?.['required']">required field</small>
+                <small class="text-danger"*ngIf="address.errors?.['pattern']">enter a address</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="form-outline">
+              Role:
+              <input type="text" name="Role" class="form-control" placeholder="Role"[(ngModel)]="user.role" #role="ngModel"
+              [class.is-invalid]="address.invalid"/>
+              <!-- <small class="text-danger" [class.d-none]="firstname.valid||firstname.untouched">Required field</small> -->
+              <div *ngIf="role.errors ">
+                <small class="text-danger" *ngIf="role.errors?.['required']">required field</small>
+                <small class="text-danger"*ngIf="role.errors?.['pattern']">enter a role</small>
+              </div>
+            </div>
+          </div>
+
+
+  <!-- Submit button -->
+          <button [disabled]="registerform.form.invalid"type="submit" class="btn btn-primary btn-block mb-4">
+           Register
+          </button>
+          <div style="text-align: center;padding: 15px;">
+          <a routerLink="/login" routerLinkActive="active" class="nav-link" ><b style="color:mediumblue">Already a user?</b> <b style="color: red;">Login now</b></a></div>
+          
+        </div></form></div>
+          </div>
+          </div>
+

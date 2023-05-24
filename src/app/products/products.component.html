@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+           
+    <div class="container-fluid">
+        <button (click)="back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+    </div>
+</nav>
+
+<h2 style="text-align:center">Products List</h2>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        
+        <th scope="col">#</th>
+        <th>Image</th>
+        <th scope="col">ProductId</th>
+        <th scope="col">ProductName</th>
+        <th scope="col">ProductDescription</th>
+        <th scope="col">ProductPrice</th>
+        <th scope="col">ProductDiscount</th>
+        <th scope="col">ProductQuantity</th>
+        <th scope="col">AddToCart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">1</th>
+        <td ><img src="../assets/images/iphone.jpg" alt="iphonepic" style="width: 100px;height: 100px;"></td>
+        <td>{{product.productId}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productDescription}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.discount}}</td>
+        <td>{{product.quantity}}</td>
+        <!-- <td>   <button (click)="addToCart(product.productId)" class="btn btn-primary navbar-btn"style="width:80;height: 35;">AddToCart</button> </td> -->
+      </tr>
+      <tr>
+    </tbody>
+  </table>

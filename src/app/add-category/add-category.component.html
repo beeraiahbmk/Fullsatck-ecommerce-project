@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+           
+    <div class="container-fluid">
+        <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>   
+    <!-- <ul class = "nav navbar-nav">
+        <li class = "nav-item">
+            <a routerLink="/adminhome" routerLinkActive="active" class="nav-link" ><p style="color:antiquewhite">Home </p></a>
+        </li>
+    </ul> -->
+    </div>
+</nav>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+<div class="col-md-6 offset-md-3">
+    <h3>Add Hotel </h3>
+    <form (ngSubmit) = "onSubmit()"style="background-color:#E6E6FA"#creathotelform="ngForm">
+        <div class="form-group">
+            <label> category Name</label>
+            <input type="text" class ="form-control" id = "categoryName"
+                [(ngModel)] = "category.categoryName" name = "categoryName"required pattern="[a-zA-Z'-'\s]*"#categoryName="ngModel"
+                [class.is-invalid]="categoryName.invalid&&categoryName.touched"/>
+                
+                <div *ngIf="categoryName.errors &&(categoryName.invalid && categoryName.touched)">
+                    <small class="text-danger" *ngIf="categoryName.errors?.['required']">required field</small>
+                    <small class="text-danger"*ngIf="categoryName.errors?.['pattern']">enter a valid name</small>
+                  </div>
+        </div>
+    
+        <div class="form-group">
+            <label> Category description</label>
+            <input type="text" class ="form-control" id = "categoryDescription"
+                [(ngModel)] = "category.categoryDescription" name = "categoryDescription"required pattern="[a-zA-Z'-'\s]*"#categoryDescription="ngModel"
+                [class.is-invalid]="categoryDescription.invalid&&categoryDescription.touched"/>
+                
+                <div *ngIf="categoryDescription.errors &&(categoryDescription.invalid && categoryDescription.touched)">
+                    <small class="text-danger" *ngIf="categoryDescription.errors?.['required']">required field</small>
+                    <small class="text-danger"*ngIf="categoryDescription.errors?.['pattern']">enter a valid place</small>
+                  </div>
+        </div>
+        <button [disabled]="creathotelform.form.invalid"class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
+        </div></div></div>

@@ -1,0 +1,32 @@
+
+<nav class="navbar navbar-expand-sm navbar-da" style="background-color:black">
+           
+    <div class="container-fluid">
+        <button (click)="back()"class="btn btn-primary navbar-btn">Go Back</button>   
+    </div>
+</nav>
+
+<h2 style="text-align:center">Category List</h2>
+<div class="card">
+    <div class="card-body">
+<table class = "table table-striped">
+    <thead >
+        <tr>
+            <th> Category Name</th>
+            <th> Category Description </th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor = "let category of categories" >
+            <td> {{ category.categoryName}} </td>
+            <td> {{ category.categoryDescription}} </td>
+            <!-- <td><button type="button" class="btn btn-info"(click)="updateCategory(category.categoryId)">Update</button></td> 
+            <td> <button type="button" class="btn btn-danger"(click)="deleteCategory(category.categoryId)">Delete</button> </td>
+            <td> <button type="button" class="btn btn-danger"(click)="addProduct(category.categoryId)">Add product</button> </td> -->
+        </tr>
+    </tbody>
+</table>
+    </div></div>
+
+
+

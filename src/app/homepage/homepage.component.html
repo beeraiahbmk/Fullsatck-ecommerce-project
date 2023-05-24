@@ -1,0 +1,72 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:black">
+    <div class="container-fluid">
+        <button (click)="back()"class="btn"><i ></i>></button>    -->
+        <!-- class="btn btn-primary navbar-btn" -->
+  <!-- <ul > -->
+    <!-- class = "nav navbar-nav" -->
+    <!-- <i  class="bi bi-person"></i> -->
+
+     <!-- <button id="home"(click)="contactUs()"> <i class="fa fa-phone"></i>ContactUs</button> -->
+     <!-- <button id="home"(click)="userProfile()">Profile</button>
+     <button id="home"(click)="viewProducts()"> products</button>
+     <button id="home"(click)="viewCategory()">categories</button> -->
+     <!-- <button id="home"(click)="reservationDetails()"> <i  class="bi bi-person"></i>Reservations</button> -->
+  <!-- </ul>
+  <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button>
+    </div>
+ </nav> -->
+ <ul>
+  <li><button (click)="back()"><i ></i>></button></li>
+  <li><button id="home"(click)="userProfile()"><span>Profile</span></button></li>
+<li><button id="home"(click)="viewProducts()"><span> products</span></button></li>
+<li><button id="home"(click)="viewCategory()"><span>categories</span></button></li>
+<li><button (click)="logOut()"><span>Log out</span></button></li>
+</ul>
+<br>
+<div class="navbar-brand align-item-center d-flex">
+  <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+      
+  </i>
+  <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="this.searchdata"  placeholder="search">
+  </div>
+  <span class="fas fa-search search-icon"></span>
+  <button style="margin: 10px;padding: 5px;height: 40px;" class="btn btn-outline-success my-2 my-sm-0" id="home"(click)="searchProduct(this.searchdata)"> <i  class="bi bi-person"></i>Search product</button>
+</div>
+ <!-- <div style="justify-content: center;"> -->
+  <!-- class="form-control" -->
+  <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+  <!-- <input class="form-control mr-sm-2" type="text" name="productName" class="form-control mr-sm-2" placeholder="Search" [(ngModel)]="this.searchdata"/>
+  <br>
+  <button  class="btn btn-outline-success my-2 my-sm-0" id="home"(click)="searchProduct(this.searchdata)"> <i  class="bi bi-person"></i>Search Product</button>
+ </div>
+ <br> -->
+
+ <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th scope="col">ProductName</th>
+        <th scope="col">ProductDescription</th>
+        <th scope="col">ProductPrice</th>
+        <th scope="col">ProductDiscount</th>
+        <th scope="col">ProductQuantity</th>
+        <th scope="col">AddToCart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <img src="../assets/images/iphone.jpg" alt="iphone" style="width: 100px;height: 100px;">
+        <td>{{product.productName}}</td>
+        <td>{{product.productDescription}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.discount}}</td>
+        <td>{{product.quantity}}</td>
+        <td><button (click)="addToCart(product.productId)" class="btn btn-primary navbar-btn"style="width:80;height: 35;">AddToCart</button></td> 
+      </tr>
+    </tbody>
+  </table>
+
+
+   
